@@ -10,6 +10,7 @@ public class CartaoControle {
     private String ccTipoEnv;
     private int ccCdRrast;
     private String ccDtLiberacao;
+    private static int meuInt;
 
     public CartaoControle(String[] cartaoControleArgs) throws Exception {
         cartaoControleArgs = validarCartaoControle(cartaoControleArgs);
@@ -18,6 +19,14 @@ public class CartaoControle {
         setCcTipoEnv(cartaoControleArgs[1]);
         setCcCdRrast(cartaoControleArgs[2]);
         setCcDtLiberacao(cartaoControleArgs[3]);
+    }
+
+    public int getMeuInt(){
+        return meuInt;
+    }
+
+    public void setMeuInt(int _meuInt){
+        this.meuInt = _meuInt;
     }
 
 

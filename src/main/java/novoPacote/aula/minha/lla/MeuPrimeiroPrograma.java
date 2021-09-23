@@ -1,4 +1,4 @@
-package novoPacote;
+package novoPacote.aula.minha.lla;
 
 import aula.CartaoControle;
 import aula.Teste;
@@ -9,6 +9,7 @@ public class MeuPrimeiroPrograma {
 
         new Teste().toString();
         CartaoControle cartaoControle = new CartaoControle(null);
+
     }
 
 }

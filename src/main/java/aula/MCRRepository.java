@@ -22,6 +22,4 @@ public interface MCRRepository extends JpaRepository<MCR, String> {
             nativeQuery = true)
     List<MCR> getMcr();
 
-
-
 }

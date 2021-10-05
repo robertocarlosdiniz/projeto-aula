@@ -1,5 +1,7 @@
 package aula;
 
+import aula.exception.CartaoControleException;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -36,7 +38,7 @@ public class CartaoControle {
 
     public void setCcId(String ccId) throws Exception {
         if( !ccId.equals("** ") ){
-            throw new Exception("ERRO NO CARTAO CONTROLE - CCID");
+            throw new CartaoControleException("ERRO NO CARTAO CONTROLE - CCID");
         }
         this.ccId = ccId;
     }
@@ -47,7 +49,7 @@ public class CartaoControle {
 
     public void setCcTipoEnv(String ccTipoEnv) throws Exception {
         if( !ccTipoEnv.equalsIgnoreCase("E") && !ccTipoEnv.equalsIgnoreCase("R") ){
-            throw new Exception(">>> TIPO DE GERACAO INVALIDO");
+            throw new CartaoControleException(">>> TIPO DE GERACAO INVALIDO");
         }
         this.ccTipoEnv = ccTipoEnv;
     }
@@ -72,7 +74,7 @@ public class CartaoControle {
         try {
             LocalDate.parse(ccDtLiberacao, DateTimeFormatter.ofPattern("ddMMyyyy"));
         } catch (DateTimeParseException e){
-            throw new Exception("Data invalida");
+            throw new CartaoControleException("Data invalida");
         }
         this.ccDtLiberacao = ccDtLiberacao;
     }
@@ -80,11 +82,11 @@ public class CartaoControle {
     private String[] validarCartaoControle(String[] cartaoControle) throws Exception {
 
         if( cartaoControle.length != 4){
-            throw new Exception("CARTÃO CONTROLE DEVE TER 4 PARAMETROS");
+            throw new CartaoControleException("CARTÃO CONTROLE DEVE TER 4 PARAMETROS");
         }
 
         if( cartaoControle[2].isBlank() && cartaoControle[3].trim().isEmpty() ){
-            throw new Exception(">>> CD REMESSA OU DATA OBRIGATORIO");
+            throw new CartaoControleException(">>> CD REMESSA OU DATA OBRIGATORIO");
         }
 
         if(cartaoControle[2].isBlank()){

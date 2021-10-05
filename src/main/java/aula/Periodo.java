@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Period {
+public class Periodo {
 
     @Column(name = "CD_PVVDT_PRC_VND")
     private String CD_PVVDT_PRC_VND;
@@ -108,5 +108,16 @@ public class Period {
                 ", VR_MLVVDT_MIN_VND='" + VR_MLVVDT_MIN_VND + '\'' +
                 ", VR_MLVVDT_CUS_MCR='" + VR_MLVVDT_CUS_MCR + '\'' +
                 '}';
+    }
+
+    public String toCsv() {
+        return CD_PVVDT_PRC_VND + ';' +
+                CD_PVVDT_DOC_PRC + ';' +
+                CD_LPVVDT_LOT_PRC + ';' +
+                CD_MLVVDT_MCR_WMS + ';' +
+                CD_MCR + ';' +
+                DS_MCR + ';' +
+                VR_MLVVDT_MIN_VND + ';' +
+                VR_MLVVDT_CUS_MCR;
     }
 }
